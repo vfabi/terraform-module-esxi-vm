@@ -5,8 +5,7 @@ These types of resources are supported:
 
 
 ## Features
-The only external dependency is VMware ESXI host. No VMware vCenter required, no VMshpere Terraform provider required!  
-Just your infracode + VM template files stored locally.
+The only external dependency is VMware ESXI host. No VMware vCenter required, no VMshpere Terraform provider required! Just your infracode + VM template files stored locally.
 
 
 ## Requirements
@@ -35,6 +34,7 @@ Just your infracode + VM template files stored locally.
 | vm_spec_cpu_cores | VM cpu core count spec. | string | `1` | no |
 | vm_image_template_file | OVA/OVF format VM image template file absolute local path. | string | | yes |
 | vm_poweron | VM power on/off. | string | `on` | no |
+| vm_notes | VM notes (annotation). | string | | no |
 | vm_ssh_user_name | VM ssh user name. | string | | yes |
 | vm_ssh_user_password | VM ssh user name. | string | | yes |
 | esxi_network_name | ESXI's network resource name attached to VM. Example: `VM Network`. | string | | yes |
@@ -96,7 +96,7 @@ variable "esxi_user_password" {
 
 
 module "esxi-vm" {
-    source = "github.com/vfabi/terraform-module-esxi-vm?ref=1.0"
+    source = "github.com/vfabi/terraform-module-esxi-vm?ref=1.1"
     count = 2
 
     # Provider explicit definition (optional).
@@ -113,6 +113,7 @@ module "esxi-vm" {
     vm_poweron = "on"  # optional, default=on
     vm_ssh_user_name = "user"
     vm_ssh_user_password = "Yua89_26gHa_eYu7q"
+    vm_notes = "some vm notes"
     esxi_network_name = "VM Network"
     esxi_datastore_name = "datastore0"
 }

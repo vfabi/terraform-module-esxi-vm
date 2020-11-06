@@ -21,6 +21,7 @@ resource "esxi_guest" "vm" {
     ovf_source = var.vm_image_template_file
     power = var.vm_poweron
     disk_store = var.esxi_datastore_name
+    notes = var.vm_notes
 
     network_interfaces {
         virtual_network = var.esxi_network_name
