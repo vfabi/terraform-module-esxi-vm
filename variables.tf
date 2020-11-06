@@ -18,6 +18,12 @@ variable "vm_os_type" {
     type = string
 }
 
+variable "vm_notes" {
+    description = "VM notes (annotation)."
+    type = string
+    default = ""
+}
+
 variable "vm_spec_cpu_cores" {
     description = "VM spec CPU cores count."
     type = string
